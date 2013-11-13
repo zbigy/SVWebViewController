@@ -7,6 +7,7 @@
 //  https://github.com/samvermette/SVWebViewController
 
 #import "SVWebViewController.h"
+#import "PPMailComposeViewController.h"
 
 @interface SVWebViewController () <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
@@ -384,7 +385,7 @@
     
     else if([title localizedCompare:NSLocalizedStringFromTable(@"Mail Link to this Page", @"SVWebViewController", @"")] == NSOrderedSame) {
         
-		MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+		PPMailComposeViewController *mailViewController = [[PPMailComposeViewController alloc] init];
         
 		mailViewController.mailComposeDelegate = self;
         [mailViewController setSubject:[self.mainWebView stringByEvaluatingJavaScriptFromString:@"document.title"]];
